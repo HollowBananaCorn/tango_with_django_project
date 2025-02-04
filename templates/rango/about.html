@@ -6,13 +6,17 @@
 {% endblock %}
 
 {% block body_block %}
-    <h1>Rango says...</h1>
-    <div>
-        hey there partner! <br />
-        <strong> This tutorial has been put together by Banana </strong><br /> 
-        <p>Visits: {{ visits }}</p>
- 
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumbotron-heading">Rango says...</h1>
+            <div>
+                <h2 class="h2">hey there partner!</h2>
+            <strong> This tutorial has been put together by Banana </strong>
+            <p>Visits: {{ visits }}</p>
+            </div>
+        </div>
     </div>
+
     <div>
         <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
         <img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a Cat."/>

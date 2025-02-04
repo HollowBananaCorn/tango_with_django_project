@@ -11,15 +11,24 @@
 
 {% block body_block %}
     {% if category %}
-        <h1>{{ category.name }}</h1>
+        <div class="jumbotron p-4">
+            <div class="container">
+                <h1 class="jumbotron-heading">{{ category.name }}</h1>
+
+                {% if not pages %}
+                <div>
+                <strong> No pages currently in category. </strong>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
         {% if pages %}
             <ul>
             {% for page in pages %}
             <li><a href="{{ page.url }}">{{ page.title }}</a></li>
             {% endfor %}
             </ul>
-        {% else %}
-            <strong>No pages currently in category.</strong>
         {% endif %}
         
         {% if user.is_authenticated %}
@@ -27,6 +36,10 @@
         {% endif %}
 
     {% else %}
-        The specified category does not exist.
+    <div class="jumbotron p-4">
+        <div class="container">
+            <h1 class="jumbotron-heading">The specified categorie does not exist.</h1>
+        </div>
+    </div>
     {% endif %}
 {% endblock %}
